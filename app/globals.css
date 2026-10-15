@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f4f1eb;
+  color: #1c211d;
+}
+
+.section-wrap {
+  @apply max-w-wrap mx-auto px-5 md:px-12;
+}
+
+/* left/right padding for full-bleed tiles so text lines up with .section-wrap */
+.wrap-pl {
+  padding-left: 1.25rem;
+}
+.wrap-pr {
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .wrap-pl {
+    padding-left: max(3rem, calc((100vw - 1400px) / 2 + 3rem));
+  }
+  .wrap-pr {
+    padding-right: max(3rem, calc((100vw - 1400px) / 2 + 3rem));
+  }
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 bg-shd-dark text-shd-cream text-[11px] tracking-[0.14em] uppercase font-semibold px-6 py-3.5 rounded-[4px] hover:bg-shd-darker transition-colors;
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 border border-shd-ink/40 text-shd-ink text-[11px] tracking-[0.14em] uppercase font-semibold px-6 py-3.5 rounded-[4px] hover:bg-shd-dark hover:border-shd-dark hover:text-shd-cream transition-colors;
+}
+
+.eyebrow {
+  @apply block text-[10.5px] tracking-[0.2em] uppercase text-shd-ink/60 font-medium;
+}
+
+.eyebrow-gold {
+  @apply block text-[10.5px] tracking-[0.24em] uppercase text-shd-gold font-medium;
+}
+
+/* uppercase text link with trailing arrow, e.g. "ABOUT OUR COMPANY →" */
+.link-arrow {
+  @apply inline-flex items-center gap-2.5 text-[11px] tracking-[0.16em] uppercase font-semibold hover:gap-3.5 transition-all;
+}
+
+.card-panel {
+  @apply bg-shd-card rounded-md border border-shd-line;
+}
+
+.headline {
+  @apply font-serif font-normal tracking-[-0.01em];
+}
+
+/* round icon-arrow button used inside grid tiles */
+.arrow-dot {
+  @apply w-8 h-8 rounded-full border border-shd-ink/40 text-shd-ink flex items-center justify-center shrink-0 transition-colors;
+}
+.arrow-dot-light {
+  @apply w-8 h-8 rounded-full border border-shd-cream/50 text-shd-cream flex items-center justify-center shrink-0 transition-colors;
+}
+
+.field {
+  @apply w-full bg-shd-paper border border-shd-line rounded-[4px] px-4 py-3 text-[13px] text-shd-ink placeholder:text-shd-ink/50 outline-none focus:border-shd-dark transition-colors;
+}
