@@ -1,23 +1,50 @@
+import Image from "next/image";
 import Link from "next/link";
 
-// Skyline mark + "SHD / CONSTRUCTIONS" wordmark
-export default function Logo({ tone = "dark" }: { tone?: "dark" | "light" }) {
-  const ink = tone === "dark" ? "#1c211d" : "#f4f1eb";
+// Brand logo. "compact" = emblem + text wordmark (navbar);
+// "full" = the complete logo artwork with tagline (footer).
+// tone="light" swaps the navy for cream, for use on dark backgrounds.
+export default function Logo({
+  tone = "dark",
+  variant = "compact",
+}: {
+  tone?: "dark" | "light";
+  variant?: "compact" | "full";
+}) {
+  const light = tone === "light";
+
+  if (variant === "full") {
+    return (
+      <Link href="/" className="block w-fit" aria-label="SHD Constructions home">
+        <Image
+          src={light ? "/brand/shd-logo-light.png" : "/brand/shd-logo.png"}
+          alt="SHD Constructions — Shree Hari Home Decor and Construction. Design, Build, Decorate."
+          width={900}
+          height={707}
+          className="h-auto w-[210px]"
+        />
+      </Link>
+    );
+  }
 
   return (
-    <Link href="/" className="flex items-end gap-1 shrink-0" aria-label="SHD Constructions home">
-      <svg width="30" height="28" viewBox="0 0 30 28" fill="none" aria-hidden>
-        <rect x="1" y="14" width="3" height="14" fill={ink} />
-        <rect x="5" y="8" width="3" height="20" fill={ink} />
-        <rect x="9" y="2" width="4" height="26" fill={ink} />
-        <rect x="14" y="6" width="3" height="22" fill={ink} />
-        <rect x="18" y="11" width="4" height="17" fill="#b8945a" />
-        <rect x="23" y="16" width="3" height="12" fill={ink} />
-        <rect x="0" y="27" width="30" height="1" fill={ink} />
-      </svg>
-      <span className="leading-none" style={{ color: ink }}>
-        <span className="block font-serif text-[26px] leading-[0.85] tracking-tight">SHD</span>
-        <span className="block text-[5.5px] tracking-[0.34em] mt-[3px] opacity-80">CONSTRUCTIONS</span>
+    <Link href="/" className="flex items-center gap-2.5 shrink-0" aria-label="SHD Constructions home">
+      <Image
+        src={light ? "/brand/shd-mark-light.png" : "/brand/shd-mark.png"}
+        alt=""
+        width={379}
+        height={300}
+        priority
+        className="h-[52px] w-auto"
+      />
+      <span className="leading-none">
+        <span className="block font-serif text-[17px] tracking-[0.04em] uppercase">
+          <span className="text-shd-gold">SHD</span>{" "}
+          <span className={light ? "text-shd-cream" : "text-shd-navy"}>Constructions</span>
+        </span>
+        <span className="block text-[7.5px] tracking-[0.3em] uppercase text-shd-gold mt-1.5">
+          Design &middot; Build &middot; Decorate
+        </span>
       </span>
     </Link>
   );

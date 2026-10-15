@@ -25,12 +25,7 @@ export default function Footer({ variant = "light" }: { variant?: "light" | "dar
     >
       <div className="section-wrap py-14 grid grid-cols-2 md:grid-cols-[1.6fr_1fr_1.1fr_1.4fr] gap-10 text-[13px]">
         <div className="col-span-2 md:col-span-1">
-          <Logo tone={dark ? "light" : "dark"} />
-          <p className={`mt-5 leading-relaxed ${dark ? "text-shd-cream/60" : "text-shd-ink/60"}`}>
-            Shree Hari Home Decor and Construction
-            <br />
-            Design &nbsp;&middot;&nbsp; Build &nbsp;&middot;&nbsp; Decorate
-          </p>
+          <Logo variant="full" tone={dark ? "light" : "dark"} />
         </div>
 
         <div>

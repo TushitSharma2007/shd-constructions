@@ -16,6 +16,7 @@ module.exports = {
           card: "#eeeae2",    // beige card background
           sand: "#e7e0d4",    // warm sand tile
           gold: "#b8945a",    // accent gold (used sparingly)
+          navy: "#0a1b2f",    // logo navy (wordmark only)
           line: "#e2ddd2",    // hairline borders on cream
         },
       },
